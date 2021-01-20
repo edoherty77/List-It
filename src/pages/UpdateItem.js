@@ -2,8 +2,18 @@ import React, { useEffect, useState } from 'react'
 import ItemModel from '../models/item'
 import { Formik } from 'formik'
 import Button from '@material-ui/core/Button'
-import MyInput from '../components/MyInput'
-import MySelect from '../components/MySelect'
+
+//Form imports
+import MyInput from '../components/forms/MyInput'
+import MySelect from '../components/forms/MySelect'
+import * as Yup from 'yup'
+
+const validationSchema = Yup.object({
+  category: Yup.string().required('Required'),
+  title: Yup.string().required('Required'),
+  email: Yup.string().required('Required'),
+  price: Yup.string().required('Required'),
+})
 
 const UpdateItem = (props) => {
   //Custom hook to store item data
@@ -43,6 +53,7 @@ const UpdateItem = (props) => {
         onSubmit={(values) => {
           updateItem(values)
         }}
+        validationSchema={validationSchema}
         initialValues={{
           title: item.title,
           email: item.email,

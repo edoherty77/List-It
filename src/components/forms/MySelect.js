@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react'
 import { useField, useFormikContext } from 'formik'
+import ErrorMessage from './ErrorMessage'
 
 const MySelect = (props) => {
-  const { value, setFieldValue } = useFormikContext()
-  const [field, meta] = useField(props)
+  const { errors, touched, setFieldTouched, setFieldValue } = useFormikContext()
+  const [field] = useField(props)
 
   //Set the field value to the correct select option value when component mounts
   useEffect(() => {
@@ -11,9 +12,16 @@ const MySelect = (props) => {
   }, [setFieldValue, props.name, props.data])
 
   return (
-    <>
-      <select {...props} {...field} className="input">
-        <option value="">Choose A Category</option>
+    <div className="input-div">
+      <select
+        {...props}
+        {...field}
+        className="input"
+        onBlur={() => {
+          setFieldTouched(props.name)
+        }}
+      >
+        <option value="">*Choose A Category</option>
         <option value="Sporting">Sporting</option>
         <option value="Garden">Garden</option>
         <option value="Jewelry">Jewelry</option>
@@ -23,9 +31,8 @@ const MySelect = (props) => {
         <option value="Furniture">Furniture</option>
         <option value="Art">Art</option>
       </select>
-
-      {/* {!!meta.touched && !!meta.error && <div>{meta.error}</div>} */}
-    </>
+      <ErrorMessage error={errors[props.name]} visible={touched[props.name]} />
+    </div>
   )
 }
 

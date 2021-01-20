@@ -6,6 +6,9 @@ import { mdiHome, mdiPlus } from '@mdi/js'
 const Navbar = () => {
   return (
     <nav className="navbar">
+      {/* <div>
+        <p>Region: New York City</p>
+      </div> */}
       <div>
         <input className="input" placeholder="Search" />
       </div>
@@ -17,16 +20,7 @@ const Navbar = () => {
       <div>
         <Link to="/">
           {' '}
-          <Icon
-            className="icon"
-            path={mdiHome}
-            size={2}
-            color="#fa7c30"
-            // horizontal
-            // vertical
-            // rotate={90}
-            // spin
-          />
+          <Icon className="icon" path={mdiHome} size={2} color="#fa7c30" />
         </Link>
       </div>
     </nav>

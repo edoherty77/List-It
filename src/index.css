@@ -1,1 +1,232 @@
+body {
+  background-color: #e7f5f7;
+}
 
+.App,
+#root {
+  height: 100%;
+}
+
+/* get rid of default margin */
+p,
+h1,
+h2 {
+  margin: 0;
+}
+
+/* Navbar */
+
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: absolute;
+  right: 15px;
+  top: 10px;
+}
+
+.icon:hover {
+  cursor: pointer;
+}
+
+/* /////////////////////// */
+
+/* Home Page */
+
+.home {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.header {
+  text-align: center;
+  color: #2e3131;
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  margin: 0;
+}
+
+.row {
+  justify-content: space-evenly;
+}
+
+.table {
+  margin: 50px 0 50px 0;
+  background-color: white;
+  -moz-box-shadow: 3px 3px 5px 6px #ccc;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow: 3px 3px 5px 6px #ccc;
+  height: fit-content;
+}
+
+.table-title {
+  padding: 5px 0 5px 10px;
+  /* background-color: #cfdcde; */
+  background: linear-gradient(50deg, #fa7c30 10%, rgba(0, 0, 0, 0) 60%);
+  /* color: white; */
+}
+
+/* ///////////////////////////// */
+
+/* Show Page */
+
+.item-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: chocolate; */
+  height: 100%;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  /* margin-top: 70px; */
+  width: 55%;
+  -moz-box-shadow: 3px 3px 5px 6px #ccc;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow: 3px 3px 5px 6px #ccc;
+}
+
+.left {
+  width: 100%;
+}
+
+.item-pic {
+  width: 400px;
+  height: 400px;
+}
+
+.right {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: white;
+
+  height: 400px;
+  width: 100%;
+  /* padding: 10px; */
+}
+
+.item-header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background: linear-gradient(50deg, #fa7c30 10%, rgba(0, 0, 0, 0) 80%);
+}
+
+.item-name,
+.item-price,
+.item-content {
+  padding: 0 18px 0 18px;
+}
+
+.item-price {
+  font-weight: bold;
+}
+
+.item-content {
+  border-left: solid #e8e7e7 2px;
+  /* width: 50%; */
+}
+
+.item-contact {
+  font-size: 12px;
+}
+
+.item-description {
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.item-btns {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  bottom: 15px;
+}
+
+.btn {
+  margin: 0 5px 5px 5px;
+}
+
+/* //////////////////////// */
+
+/* Add new item page/Update page */
+
+.list-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  /* background-color: chocolate; */
+  margin-top: 10px;
+  height: 100%;
+}
+
+.form {
+  background-color: white;
+  margin-top: 40px;
+  padding: 30px;
+  width: 30%;
+  height: 80%;
+  -moz-box-shadow: 3px 3px 5px 6px #ccc;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow: 3px 3px 5px 6px #ccc;
+}
+
+.form-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+  width: 100%;
+}
+
+.input-div {
+  /* display: flex; */
+  /* justify-content: center; */
+  width: 100%;
+  /* background-color: seagreen; */
+}
+
+.input {
+  width: 95%;
+  border-radius: 50px;
+  padding: 5px 10px 5px 10px;
+  margin: 10px;
+  border: 1px black solid;
+}
+
+.textarea {
+  width: 95%;
+  border-radius: 25px;
+  padding: 10px 10px 5px 15px;
+  margin: 10px;
+  border: 1px black solid;
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+}
+
+.form-btns {
+  display: flex;
+}
+
+.error-message {
+  color: red;
+  font-size: 10px;
+  align-self: flex-start;
+  margin-left: 20px;
+  position: absolute;
+  top: 10;
+}
+/* //////////////////////// */

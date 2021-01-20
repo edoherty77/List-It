@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Category from '../components/Category'
+import CategoryCard from '../components/CategoryCard'
 import CategoryModel from '../models/category'
 
 import { Row, Col } from 'antd'
@@ -21,7 +21,7 @@ const Home = (props) => {
       // console.log('CATEGORY: ', category)
       return (
         <Col>
-          <Category key={index} index={index} {...category} {...props} />
+          <CategoryCard key={index} index={index} {...category} {...props} />
         </Col>
       )
     })

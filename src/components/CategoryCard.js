@@ -2,8 +2,18 @@ import React from 'react'
 import { Table } from 'antd'
 import 'antd/dist/antd.css'
 
-function Category(props) {
-  // console.log('PROPS index: ', props.index)
+function CategoryCard(props) {
+  const fixDate = (date) => {
+    const year = date.substr(0, 4)
+    const month = date.substr(5, 2)
+    const day = date.substr(8, 2)
+    return month + '/' + day + '/' + year
+  }
+
+  // const digitsOnly = /^[0-9]*\.?[0-9]*$/g
+  // const digitsOnly = /^[0-9]*\.?[0-9]*$/g
+  const digitsOnly = /\d+/g
+
   const columns = [
     {
       title: 'Item',
@@ -18,15 +28,17 @@ function Category(props) {
       dataIndex: 'price',
       key: 'price' + props.index,
       sortDirections: ['descend', 'ascend'],
-      sorter: (a, b) => a.price - b.price,
-      render: (dataIndex) => <p>${dataIndex}</p>,
+      sorter: (a, b) => {
+        return a.price.match(digitsOnly) - b.price.match(digitsOnly)
+      },
+      render: (price) => <>${price.match(digitsOnly)}</>,
     },
     {
       title: 'Date Added',
       dataIndex: 'dateAdded',
       key: 'dateAdded' + props.index,
       sorter: (a, b) => new Date(a.dateAdded) - new Date(b.dateAdded),
-      render: (date) => <>{date ? date.substr(0, 10) : ''}</>,
+      render: (date) => <>{date ? fixDate(date) : ''}</>,
     },
   ]
   return (
@@ -46,4 +58,4 @@ function Category(props) {
   )
 }
 
-export default Category
+export default CategoryCard

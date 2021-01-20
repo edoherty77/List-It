@@ -1,10 +1,21 @@
 import React from 'react'
 import ItemModel from '../models/item'
-import { Formik } from 'formik'
 import Button from '@material-ui/core/Button'
 
-import MyInput from '../components/MyInput'
-import MySelect from '../components/MySelect'
+//Form imports
+import { Formik } from 'formik'
+import MyInput from '../components/forms/MyInput'
+import MySelect from '../components/forms/MySelect'
+import * as Yup from 'yup'
+
+const validationSchema = Yup.object({
+  category: Yup.string().required('Required'),
+  title: Yup.string().required('Required'),
+  email: Yup.string().required('Required'),
+  price: Yup.string().required('Required'),
+  description: Yup.string().required('Required'),
+  imageUrl: Yup.string().required('Required'),
+})
 
 const NewItem = (props) => {
   const submit = async (values) => {
@@ -29,15 +40,16 @@ const NewItem = (props) => {
           imageUrl: '',
           category: 'Choose A Category',
         }}
+        validationSchema={validationSchema}
       >
-        {({ values, handleChange, handleSubmit }) => (
+        {({ handleSubmit }) => (
           <form className="form" onSubmit={handleSubmit}>
             <div className="form-div">
               <MySelect name="category" />
-              <MyInput name="title" placeholder="Name" />
-              <MyInput name="price" placeholder="Price (in dollars)" />
+              <MyInput name="title" placeholder="*Name" />
+              <MyInput name="price" placeholder="*Price" />
+              <MyInput name="email" placeholder="*Email" />
               <MyInput name="imageUrl" placeholder="Image URL" />
-              <MyInput name="email" placeholder="Email" />
               <MyInput name="description" placeholder="Description" />
               <div className="form-btns">
                 <Button variant="outlined" color="primary" type="submit">
