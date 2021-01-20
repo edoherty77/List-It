@@ -1,10 +1,19 @@
+// const url = `http://localhost:4000/api/v1`
 const url =
   'https://list-it-project.herokuapp.com/api/v1' || `localhost:4000/api/v1/`
 const axios = require('axios')
 
 class ItemModel {
-  static all = () => {
-    return fetch(`${url}/items`).then((res) => res.json())
+  static search = async (data) => {
+    const inputValue = data.searchValue
+    try {
+      const searchItem = await axios.get(`${url}/items/search/${inputValue}`, {
+        method: 'GET',
+      })
+      return searchItem
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   static show = (id) => {

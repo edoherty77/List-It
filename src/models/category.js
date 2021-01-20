@@ -1,5 +1,4 @@
 // const url = `http://localhost:4000/api/v1`
-// const url = process.env.REACT_APP_API_URL || `localhost:4000/api/v1/`
 const url =
   'https://list-it-project.herokuapp.com/api/v1' || `localhost:4000/api/v1/`
 
