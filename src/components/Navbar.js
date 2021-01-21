@@ -61,12 +61,16 @@ const Navbar = () => {
             <Icon className="icon" path={mdiPlus} size={2} color="#2E3131" />
           </Link>
         </div>
+        {/* {history.location.pathname !== '/' ? ( */}
         <div className="homeIcon-div">
           <Link to="/">
             {' '}
             <Icon className="icon" path={mdiHome} size={2} color="#fa7c30" />
           </Link>
         </div>
+        {/* ) : (
+          <div></div>
+        )} */}
       </div>
     </nav>
   )

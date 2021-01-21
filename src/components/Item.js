@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import Modal from 'react-bootstrap/Modal'
 import Button from '@material-ui/core/Button'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 function Item(props) {
+  const [show, setShow] = useState(false)
+
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
   return (
     <div className="item">
       <div className="left">
@@ -32,7 +38,7 @@ function Item(props) {
         <div className="item-btns">
           <div className="btn">
             <Button variant="outlined" color="secondary" onClick={props.goBack}>
-              All Listings
+              Back
             </Button>
           </div>
           {props.email === 'evan.doherty.ny@gmail.com' ? (
@@ -46,7 +52,8 @@ function Item(props) {
                 <Button
                   variant="contained"
                   color="secondary"
-                  onClick={props.deleteItem}
+                  // onClick={props.deleteItem}
+                  onClick={handleShow}
                 >
                   Delete
                 </Button>
@@ -61,6 +68,24 @@ function Item(props) {
           )}
         </div>
       </div>
+
+      <Modal show={show} centered onHide={handleClose}>
+        <Modal.Body closeButton>
+          Are you sure you'd like to delete this?
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="primary" onClick={handleClose}>
+            Never Mind
+          </Button>
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={(handleClose, props.deleteItem)}
+          >
+            Yep
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   )
 }
