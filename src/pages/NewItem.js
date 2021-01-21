@@ -51,8 +51,8 @@ const NewItem = (props) => {
               <MyInput name="title" placeholder="*Name" />
               <MyInput name="price" placeholder="*Price" />
               <MyInput name="email" placeholder="*Email" />
-              <MyInput name="imageUrl" placeholder="Image URL" />
-              <MyInput name="description" placeholder="Description" />
+              <MyInput name="imageUrl" placeholder="*Image URL" />
+              <MyInput name="description" placeholder="*Description" />
               <div className="form-btns">
                 <Button variant="outlined" color="primary" type="submit">
                   List It

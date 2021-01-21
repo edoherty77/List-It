@@ -10,8 +10,6 @@ function CategoryCard(props) {
     return month + '/' + day + '/' + year
   }
 
-  // const digitsOnly = /^[0-9]*\.?[0-9]*$/g
-  // const digitsOnly = /^[0-9]*\.?[0-9]*$/g
   const digitsOnly = /\d+/g
 
   const columns = [

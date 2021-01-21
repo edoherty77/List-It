@@ -1,6 +1,6 @@
-const url = `http://localhost:4000/api/v1`
-// const url =
-//   'https://list-it-project.herokuapp.com/api/v1' || `localhost:4000/api/v1/`
+// const url = `http://localhost:4000/api/v1`
+const url =
+  'https://list-it-project.herokuapp.com/api/v1' || `localhost:4000/api/v1/`
 const axios = require('axios')
 
 class ItemModel {

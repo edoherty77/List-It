@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { Link, withRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Icon from '@mdi/react'
 import { mdiHome, mdiPlus } from '@mdi/js'
 
@@ -32,7 +32,6 @@ const Navbar = () => {
       const list = await ItemModel.search(info)
       const items = list.data
       setResults(items)
-      console.log(history)
     }
     if (searchValue) {
       getData()

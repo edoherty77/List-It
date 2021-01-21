@@ -1,9 +1,28 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 import './searchbar.scss'
 
 const SearchBar = (props) => {
+  //Hiding dropdown on outside click logic
+  const node = useRef()
+  useEffect(() => {
+    // add when mounted
+    document.addEventListener('mousedown', handleClick)
+    // return function to be called when unmounted
+    return () => {
+      document.removeEventListener('mousedown', handleClick)
+    }
+  }, [])
+
+  const handleClick = (e) => {
+    if (node.current.contains(e.target)) {
+      // inside click
+      return
+    }
+    // outside click
+    props.setVisible(false)
+  }
   return (
-    <div className="input_container">
+    <div className="input_container" ref={node}>
       <input
         className="search-input"
         placeholder="Search For An Item"
@@ -20,7 +39,7 @@ const SearchBar = (props) => {
         className={`dropdown ${props.visible ? 'v' : ''}`}
       >
         {props.visible && (
-          <ul>
+          <ul className="dropdown_list">
             {props.results &&
               props.results.map((item, index) => (
                 <li key={index} className="dropdown_item">
@@ -31,11 +50,17 @@ const SearchBar = (props) => {
                       }}
                       className="item_text"
                     >
-                      {item.title}
+                      {item.title} - ${item.price}
                     </p>
                   </div>
                 </li>
               ))}
+            {props.results === null ? (
+              /* <li className="none">Type Something</li> */
+              ''
+            ) : (
+              <li className="none">No More Matches</li>
+            )}
           </ul>
         )}
       </div>
