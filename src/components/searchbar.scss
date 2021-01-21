@@ -32,21 +32,12 @@
 // }
 .search-input {
   width: 200px;
-  // border-top-left-radius: 10px;
-  // border-top-right-radius: 10px;
   padding: 5px 10px 5px 10px;
   margin: 10px 0 0 10px;
-  // border: none;
   border: 1px solid #b3b3b36b;
-  // border-bottom: red;
   outline: none;
   height: 30px;
   // -webkit-tap-highlight-color: transparent;
-}
-
-.search-input::placeholder {
-  // color: rgb(61, 144, 247);
-  // align-items: center;
 }
 
 .dropdown {
@@ -60,6 +51,7 @@
   visibility: hidden;
   z-index: 1;
   &.v {
+    // height: 0;
     visibility: visible;
   }
 }

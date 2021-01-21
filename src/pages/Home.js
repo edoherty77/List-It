@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import CategoryCard from '../components/CategoryCard'
 import CategoryModel from '../models/category'
 
+// import Navbar from '../components/Navbar'
+
 import { Row, Col } from 'antd'
 
 const Home = (props) => {

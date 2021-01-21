@@ -1,12 +1,12 @@
-// const url = `http://localhost:4000/api/v1`
-const url =
-  'https://list-it-project.herokuapp.com/api/v1' || `localhost:4000/api/v1/`
+const url = `http://localhost:4000/api/v1`
+// const url =
+//   'https://list-it-project.herokuapp.com/api/v1' || `localhost:4000/api/v1/`
 const axios = require('axios')
 
 class ItemModel {
   static search = async (data) => {
     const inputValue = data.searchValue
-    console.log('INPUT:', inputValue)
+    // console.log('INPUT:', inputValue)
     try {
       const searchItem = await axios.get(`${url}/items/search/${inputValue}`, {
         method: 'GET',

@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 import './searchbar.scss'
 
 const SearchBar = (props) => {
@@ -26,14 +26,15 @@ const SearchBar = (props) => {
               props.results.map((item, index) => (
                 <li key={index} className="dropdown_item">
                   <div className="results">
-                    <p
+                    {/* <p
                       onClick={() => {
                         props.selectItem(item)
                       }}
                       className="item_text"
                     >
                       {item.title}
-                    </p>
+                    </p> */}
+                    <Link to={`/items/${item._id}`}>{item.title}</Link>
                   </div>
                 </li>
               ))}

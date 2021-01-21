@@ -12,8 +12,8 @@ const Navbar = () => {
   const [results, setResults] = useState('')
   const dropdownRef = useRef(null)
 
-  const selectItem = () => {
-    console.log('selected item')
+  const selectItem = (item) => {
+    console.log('item: ', item)
   }
 
   const handleChange = (e) => {
