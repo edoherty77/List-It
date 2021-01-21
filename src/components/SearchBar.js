@@ -4,7 +4,7 @@ import './searchbar.scss'
 
 const SearchBar = (props) => {
   return (
-    <div tabIndex="0" className="input_container">
+    <div className="input_container">
       <input
         className="search-input"
         placeholder="Search For An Item"
@@ -26,15 +26,14 @@ const SearchBar = (props) => {
               props.results.map((item, index) => (
                 <li key={index} className="dropdown_item">
                   <div className="results">
-                    <button
-                      className="suggestBtn"
+                    <p
                       onClick={() => {
                         props.selectItem(item)
                       }}
+                      className="item_text"
                     >
-                      <p className="song_text">{item.title}</p>
-                      {/* <p className="artist_text">- {item.artists[0].name}</p> */}
-                    </button>
+                      {item.title}
+                    </p>
                   </div>
                 </li>
               ))}

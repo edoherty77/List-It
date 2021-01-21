@@ -6,6 +6,7 @@ const axios = require('axios')
 class ItemModel {
   static search = async (data) => {
     const inputValue = data.searchValue
+    console.log('INPUT:', inputValue)
     try {
       const searchItem = await axios.get(`${url}/items/search/${inputValue}`, {
         method: 'GET',

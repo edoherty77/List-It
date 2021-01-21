@@ -27,6 +27,7 @@ const Navbar = () => {
     async function getData() {
       const info = { searchValue }
       const list = await ItemModel.search(info)
+      console.log('DATA: ', list)
       const items = list.data
       setResults(items)
       // console.log('RESULTS: ', results)
