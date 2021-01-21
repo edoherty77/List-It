@@ -6,12 +6,16 @@ function Item(props) {
   return (
     <div className="item">
       <div className="left">
-        <img
-          className="item-pic"
-          src={props.imageUrl}
-          alt={`${props.title} Cover Art`}
-          style={{ maxWidth: '100%' }}
-        />
+        {props.imageUrl ? (
+          <img
+            className="item-pic"
+            src={props.imageUrl}
+            alt={`${props.title} Cover Art`}
+            style={{ maxWidth: '100%' }}
+          />
+        ) : (
+          <div style={{ textAlign: 'center' }}>Loading: Please Wait</div>
+        )}
       </div>
       <div className="right">
         <div className="item-header">
@@ -31,20 +35,30 @@ function Item(props) {
               All Listings
             </Button>
           </div>
-          <div className="btn">
-            <Button variant="outlined" color="primary" className="btn">
-              <Link to={`/items/${props._id}/update`}>Update</Link>
-            </Button>
-          </div>
-          <div className="btn">
-            <Button
-              variant="contained"
-              color="secondary"
-              onClick={props.deleteItem}
-            >
-              Delete
-            </Button>
-          </div>
+          {props.email === 'evan.doherty.ny@gmail.com' ? (
+            <div style={{ display: 'flex' }}>
+              <div className="btn">
+                <Button variant="outlined" color="primary">
+                  <Link to={`/items/${props._id}/update`}>Update</Link>
+                </Button>
+              </div>
+              <div className="btn">
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  onClick={props.deleteItem}
+                >
+                  Delete
+                </Button>
+              </div>
+            </div>
+          ) : (
+            <div className="btn">
+              <Button variant="contained" color="primary">
+                Place Bid
+              </Button>
+            </div>
+          )}
         </div>
       </div>
     </div>

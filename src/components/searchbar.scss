@@ -1,13 +1,11 @@
 .input_container {
   padding: 5px 0 0 5px;
-  position: absolute;
-  outline: none;
-  // height: 200px;
+  width: 100%;
 }
 
 .search-input {
   position: relative;
-  width: 200px;
+  width: 250px;
   padding: 5px 10px 5px 10px;
   margin: 10px 0 0 10px;
   border: 1px solid #b3b3b36b;
@@ -21,6 +19,7 @@
   position: relative;
   margin-left: 10px;
   max-height: 200px;
+  width: 250px;
   overflow-x: hidden;
   border: 1px solid #b3b3b36b;
   background-color: white;

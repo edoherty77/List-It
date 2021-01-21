@@ -56,7 +56,6 @@ const SearchBar = (props) => {
                 </li>
               ))}
             {props.results === null ? (
-              /* <li className="none">Type Something</li> */
               ''
             ) : (
               <li className="none">No More Matches</li>
