@@ -1,19 +1,22 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import Icon from '@mdi/react'
 import { mdiHome, mdiPlus } from '@mdi/js'
 
 import SearchBar from './SearchBar'
 import ItemModel from '../models/item'
+import { createBrowserHistory } from 'history'
 
 const Navbar = () => {
+  const history = createBrowserHistory({ forceRefresh: true })
   const [visible, setVisible] = useState(false)
   const [searchValue, setSearchValue] = useState('')
   const [results, setResults] = useState('')
   const dropdownRef = useRef(null)
 
   const selectItem = (item) => {
-    console.log('item: ', item)
+    setVisible(!visible)
+    history.push(`/items/${item._id}`)
   }
 
   const handleChange = (e) => {
@@ -27,10 +30,9 @@ const Navbar = () => {
     async function getData() {
       const info = { searchValue }
       const list = await ItemModel.search(info)
-      console.log('DATA: ', list)
       const items = list.data
       setResults(items)
-      // console.log('RESULTS: ', results)
+      console.log(history)
     }
     if (searchValue) {
       getData()
